@@ -130,10 +130,11 @@ class DQNAgent:
 				
 				next_obs, reward, done, info = self.env.step(action)
 				next_obs = normalize_obs(next_obs)
-				obs = next_obs
+
 				episode_reward += reward
 				
 				self.store_transition(obs, action, reward, next_obs, done)
+				obs = next_obs
 				self.num_in_buffer = min(self.num_in_buffer+1, self.buffer_size)
 		
 				if step > self.start_learning:
