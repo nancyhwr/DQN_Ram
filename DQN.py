@@ -130,6 +130,7 @@ class DQNAgent:
 				
 				next_obs, reward, done, info = self.env.step(action)
 				next_obs = normalize_obs(next_obs)
+				obs = next_obs
 				episode_reward += reward
 				
 				self.store_transition(obs, action, reward, next_obs, done)
